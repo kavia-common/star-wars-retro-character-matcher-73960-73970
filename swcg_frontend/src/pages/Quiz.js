@@ -3,38 +3,58 @@ import { useNavigate } from 'react-router-dom';
 import { submitQuiz } from '../services/api';
 import { useFlowState } from '../hooks/useFlowState';
 
-// Mock quiz questions mapped to 4 choices producing answer_id strings
+// Updated quiz questions mapped to backend answer_id format: q{n}_{a|b|c|d}
 const QUESTIONS = [
-  { id: 1, q: "Choose your cosmic vibe:", a: [
-    { id: 'rebellious', label: 'Rebellious Spark ✨' },
-    { id: 'mysterious', label: 'Mysterious Aura 🌌' },
-    { id: 'witty', label: 'Witty Banter 😏' },
-    { id: 'steadfast', label: 'Steadfast Soul 🛰️' },
-  ]},
-  { id: 2, q: "Pick a neon snack for hyperspace:", a: [
-    { id: 'blue_milk', label: 'Blue Milkshake 🥤' },
-    { id: 'cantina_chips', label: 'Cantina Chips 🍟' },
-    { id: 'carbonite_ice', label: 'Carbonite Ice 🍧' },
-    { id: 'binary_biscuits', label: 'Binary Biscuits 🍪' },
-  ]},
-  { id: 3, q: "Your theme song in the 80s charts:", a: [
-    { id: 'power_ballad', label: 'Power Ballad 🎤' },
-    { id: 'synthwave', label: 'Synthwave 🚀' },
-    { id: 'funk_groove', label: 'Funk Groove 🪩' },
-    { id: 'epic_score', label: 'Epic Score 🎬' },
-  ]},
-  { id: 4, q: "Pick a glam accessory:", a: [
-    { id: 'cape', label: 'Flowing Cape 🦸' },
-    { id: 'neon_saber', label: 'Neon Saber ⚡' },
-    { id: 'glitter_helmet', label: 'Glitter Helmet 🪐' },
-    { id: 'vintage_boots', label: 'Vintage Boots 👢' },
-  ]},
-  { id: 5, q: "Choose your star path:", a: [
-    { id: 'destiny', label: 'Destiny Caller ✨' },
-    { id: 'rogue', label: 'Rogue Adventurer 🏴‍☠️' },
-    { id: 'guardian', label: 'Guardian of Vibes 🛡️' },
-    { id: 'oracle', label: 'Cosmic Oracle 🔮' },
-  ]},
+  {
+    id: 1,
+    q: "When facing a challenge, you...",
+    a: [
+      { id: 'q1_a', label: 'A) Dive in headfirst, consequences be damned' },
+      { id: 'q1_b', label: 'B) Analyze and make a strategic plan' },
+      { id: 'q1_c', label: 'C) Look for help from friends' },
+      { id: 'q1_d', label: 'D) Trust your instincts and hope for the best' },
+    ],
+  },
+  {
+    id: 2,
+    q: "Your ideal Saturday night in a galaxy far, far away:",
+    a: [
+      { id: 'q2_a', label: 'A) Winning a heated game at a cantina' },
+      { id: 'q2_b', label: 'B) Tinkering with gadgets or starships' },
+      { id: 'q2_c', label: 'C) Rallying your squad for a cause' },
+      { id: 'q2_d', label: 'D) Meditating under the twin moons' },
+    ],
+  },
+  {
+    id: 3,
+    q: "If you had to pick a ride, you'd choose:",
+    a: [
+      { id: 'q3_a', label: 'A) A fast and flashy starfighter' },
+      { id: 'q3_b', label: 'B) A trusty, heavily-modified freighter' },
+      { id: 'q3_c', label: 'C) Whatever gets the job done/team transport' },
+      { id: 'q3_d', label: 'D) Something rare, old, and full of surprises' },
+    ],
+  },
+  {
+    id: 4,
+    q: "How would your friends describe you?",
+    a: [
+      { id: 'q4_a', label: 'A) Bold and daring' },
+      { id: 'q4_b', label: 'B) Clever and resourceful' },
+      { id: 'q4_c', label: 'C) Loyal and dependable' },
+      { id: 'q4_d', label: 'D) Quirky and unpredictable' },
+    ],
+  },
+  {
+    id: 5,
+    q: "When someone breaks the rules, you...",
+    a: [
+      { id: 'q5_a', label: 'A) Join in the mischief' },
+      { id: 'q5_b', label: 'B) Figure out if it benefits you' },
+      { id: 'q5_c', label: 'C) Try to restore order' },
+      { id: 'q5_d', label: 'D) Enjoy the chaos' },
+    ],
+  },
 ];
 
 // PUBLIC_INTERFACE
