@@ -218,6 +218,8 @@
   font-size: 20px;
   letter-spacing: .3px;
   margin-bottom: 12px;
+  color: var(--accent); /* neon yellow for high contrast */
+  text-shadow: 0 0 8px rgba(255,255,0,0.45), 0 0 20px rgba(255,119,255,0.18);
 }
 .answer-grid {
   display: grid;
@@ -229,13 +231,17 @@
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(255,255,255,0.06);
+  color: var(--text); /* bright readable body text */
+  text-shadow: 0 0 6px rgba(0,119,255,0.3);
   cursor: pointer;
-  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
 }
 .answer-btn:hover {
   transform: translateY(-1px);
   border-color: var(--primary);
   background: rgba(255,119,255,0.08);
+  box-shadow: 0 0 14px rgba(255,119,255,0.25), inset 0 0 12px rgba(0,119,255,0.2);
+  color: #ffffff;
 }
 
 /* Reveal / Photo card aesthetic */

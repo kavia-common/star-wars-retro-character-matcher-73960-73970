@@ -111,10 +111,27 @@ export default function Quiz() {
       </div>
 
       <div className="question-card" style={{ opacity: submitting ? 0.6 : 1, pointerEvents: submitting ? 'none' : 'auto' }}>
-        <div className="question-text">Q{q.id}. {q.q}</div>
+        <div
+          className="question-text"
+          style={{
+            color: 'var(--accent)',
+            textShadow: '0 0 8px rgba(255,255,0,0.6), 0 0 18px rgba(255,119,255,0.25)',
+            fontWeight: 700
+          }}
+        >
+          Q{q.id}. {q.q}
+        </div>
         <div className="answer-grid">
           {q.a.map(opt => (
-            <button key={opt.id} className="answer-btn" onClick={() => choose(opt.id)}>
+            <button
+              key={opt.id}
+              className="answer-btn"
+              onClick={() => choose(opt.id)}
+              style={{
+                color: 'var(--text)',
+                textShadow: '0 0 6px rgba(0,119,255,0.35)',
+              }}
+            >
               {opt.label}
             </button>
           ))}
